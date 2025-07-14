@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f8ff;
+    }
+
+    /* Nav Bar Styles */
+    header {
+      background: linear-gradient(to right, #4b2c5e, #a89583);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    #logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    #logo span {
+      font-weight: normal;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav ul li.submenu:hover ul {
+      display: block;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      border-radius: 4px;
+      min-width: 160px;
+      z-index: 1000;
+    }
+
+    nav ul li ul li {
+      margin: 0;
+    }
+
+    nav ul li ul li a {
+      padding: 0.75rem 1rem;
+      display: block;
+      color: white;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #333;
+    }
+
+    /* Weather container */
+    .weather-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .weather-container input {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 180px;
+      margin-right: 0.5rem;
+    }
+
+    .weather-container button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #1e90ff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .weather-icon {
+      width: 64px;
+      height: 64px;
+    }
+
+    .temperature {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div id="logo">VENARA <span>KARIYAPPERUMA</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="wether.html">WETHER</a></li>
+        <li class="submenu">
+          <a href="#">PLACES</a>
+          <ul>
+            <li><a href="left-sidebar.html">Kamakura Temple</a></li>
+            <li><a href="right-sidebar.html">Hasedera Temple</a></li>
+            <li><a href="no-sidebar.html">Enoshima Island</a></li>
+            <li><a href="contact.html">Enoshima Beach</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Weather Container -->
+  <div class="weather-container">
+    <h2>Search your city</h2>
+    <div style="margin-bottom: 1rem;">
+      <input type="text" id="city-input" placeholder="e.g. London" />
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="weather-results"></div>
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>
