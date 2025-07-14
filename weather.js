@@ -14,8 +14,8 @@ async function fetchWeather(query) {
   resultsDiv.innerHTML = "<p>Loading...</p>";
   try {
     const response = await fetch(
-  `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`
-);
+      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`
+    );
     if (!response.ok) throw new Error("Failed to fetch");
 
     const data = await response.json();
