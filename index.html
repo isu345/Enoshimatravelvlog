@@ -7,6 +7,36 @@
 <html>
 	<head>
 		<style>
+    #welcomePopup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+    }
+
+    #welcomePopup.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+  </style>
+		<style>
   /* Added new style for greeting input */
   #nameInput {
     border: 2px solid black;
@@ -277,6 +307,13 @@
 
 
 				</footer>
+				</div>
+		<!-- NEW: Welcome Popup HTML -->
+  <div id="welcomePopup">
+    <div class="popup-content">
+      <p>Welcome to my page! 😊</p>
+    </div>
+  </div>
 
 		</div>
 
@@ -296,6 +333,21 @@
   }
 </script>
 <script>
+	window.addEventListener('load', () => {
+    const popup = document.getElementById('welcomePopup');
+    popup.classList.add('show');
+
+    // Set the time (in milliseconds) before popup closes automatically
+    const closeDelay = 5000; // 5000ms = 5 seconds
+
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, closeDelay);
+  });
+
+  function closePopup() {
+    document.getElementById('welcomePopup').classList.remove('show');
+  }
   document.addEventListener("DOMContentLoaded", function() {
     const fadeElems = document.querySelectorAll('.fade-in');
 
